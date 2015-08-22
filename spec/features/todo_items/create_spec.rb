@@ -20,8 +20,28 @@ describe "Viewing todo items" do
 		within("ul.todo_items") do
 			expect(page).to have_content("Note 5")
 		end
+	end
 
+	it "displays error with no content" do
+		visit_todo_list(todo_list)
+		click_link "New Todo Item"
+		fill_in "Content", with: ""
+		click_button "Save"
+		within("div.flash") do
+			expect(page).to have_content("There was a problem adding that todo list item.")
+		end
+		expect(page).to have_content("Content can't be blank")
+	end
 
+	it "displays error with content less than 2 characters" do
+		visit_todo_list(todo_list)
+		click_link "New Todo Item"
+		fill_in "Content", with: "A"
+		click_button "Save"
+		within("div.flash") do
+			expect(page).to have_content("There was a problem adding that todo list item.")
+		end
+		expect(page).to have_content("Content is too short")
 	end
 
 
