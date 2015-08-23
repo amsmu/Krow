@@ -12,7 +12,7 @@ describe "Viewing todo items" do
 		fill_in "Content", with: "Note 5"
 		click_button "Save"
 		expect(page).to have_content("Added todo item successfully.")
-		within("ul.todo_items") do
+		within("ul.todo_item") do
 			expect(page).to have_content("Note 5")
 		end
 	end
