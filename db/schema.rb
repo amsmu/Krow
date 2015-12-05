@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150823184738) do
+ActiveRecord::Schema.define(version: 20151201174519) do
 
   create_table "todo_items", force: :cascade do |t|
     t.integer  "todo_list_id", limit: 4
@@ -28,7 +28,23 @@ ActiveRecord::Schema.define(version: 20150823184738) do
     t.text     "description", limit: 65535
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.integer  "user_id",     limit: 4
   end
+
+  add_index "todo_lists", ["user_id"], name: "index_todo_lists_on_user_id", using: :btree
+
+  create_table "users", force: :cascade do |t|
+    t.string   "first_name",           limit: 255
+    t.string   "last_name",            limit: 255
+    t.string   "email",                limit: 255
+    t.string   "password_digest",      limit: 255
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.string   "password_reset_token", limit: 255
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", using: :btree
+  add_index "users", ["password_reset_token"], name: "index_users_on_password_reset_token", using: :btree
 
   add_foreign_key "todo_items", "todo_lists"
 end

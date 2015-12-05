@@ -1,0 +1,11 @@
+<h1>Sign in</h1>
+<%= form_tag user_sessions_path  do %>
+<%= label_tag :email, "Email ID"%>
+<%= text_field_tag :email, params[:email]%>
+<br>
+<%= label_tag :password, "Password"%>
+<%= password_field_tag :password%>
+<br>
+<%= submit_tag "Sign in", class: "button"%>
+<%= link_to "Forgot Password?", new_password_reset_path , class: "button secondary" %>
+<% end%>

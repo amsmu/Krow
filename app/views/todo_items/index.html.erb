@@ -5,8 +5,8 @@
 	<thead>
 		<tr>
 		<th width="25%">Completed?</th>
-		<th width="65%">Todo Item</th>
-		<th width="10%">Options</th>
+		<th width="50%">Todo Item</th>
+		<th width="25%">Options</th>
 		</tr>
 	</thead>
 	<%@todo_list.todo_items.each do |todo_item| %>
@@ -17,18 +17,19 @@
 			<%=todo_item.completed_at%>
 			<%else%>
 			
-			<%= link_to "Mark Complete", complete_todo_list_todo_item_path(todo_item), method: :patch %>
+			<%= link_to "Mark Complete", complete_todo_list_todo_item_path(todo_item), method: :patch, class: "button tiny success " %>
 			<%end%>
 		</td>
 		<td><%=todo_item.content %></td>
 		
 
-		<td><%= link_to "Edit", edit_todo_list_todo_item_path( todo_item) %>
-			<%= link_to "Delete", todo_list_todo_item_path( todo_item), method: :delete, data: {confirm: "Are you sure?"} %></td>
+		<td><%= link_to "Edit", edit_todo_list_todo_item_path( todo_item),class: "button tiny " %>
+			<%= link_to "Delete", todo_list_todo_item_path( todo_item), method: :delete, data: {confirm: "Are you sure?"},class: "button tiny alert" %></td>
 	</tr>
 	<% end %>
 </table>
 
 <p>
-	<%= link_to "New Todo Item", new_todo_list_todo_item_path %>
+	<%= link_to "New Todo Item", new_todo_list_todo_item_path,class: "button tiny "  %>
+	<%= link_to 'Back', todo_lists_path,class: "button tiny " %>
 </p>

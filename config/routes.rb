@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
   
 
+  get 'home/index'
+
+  get 'user_sessions/create'
+  get "/login" => "user_sessions#new", as: :login
+  delete "/logout" => "user_sessions#destroy", as: :logout
+
+  resources :users
+  resources :user_sessions, only: [:new, :create, :destroy]
+  resources :password_resets, only: [:new, :create, :edit, :update]
   resources :todo_lists do
     resources :todo_items do
       member do
@@ -13,7 +22,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  root 'todo_lists#index'
+  root 'home#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
