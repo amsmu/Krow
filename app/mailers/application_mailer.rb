@@ -1,6 +1,6 @@
 class ApplicationMailer < ActionMailer::Base
 	default_url_options[:host] = "localhost:3000"
-	default from: "amarjeetsingh755@gmail.com"
+	default from: "noreply@teksavant.com"
 	layout 'mailer'
 
 	def password_reset(user)
