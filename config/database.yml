@@ -1,4 +1,4 @@
-$ cat config/database.yml
+
 # MySQL.  Versions 5.0+ are recommended.
 #
 # Install the MYSQL driver
@@ -50,10 +50,10 @@ test:
 #
 production:
   adapter: postgresql
-  encoding: unicode
-  # For details on connection pooling, see rails configuration guide
-  # http://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: 5
-  database: listdown_production
-  username: listdown
-  password: <%= ENV['LISTDOWN_DATABASE_PASSWORD'] %>
+  url: <%= ENV['RAILS_PG_URL'] %>
+  database: <%= ENV['RAILS_PG_DATABASE'] %>
+  port: <%= ENV['RAILS_PG_PORT'] %>
+  host: <%= ENV['RAILS_PG_HOST'] %>
+  username: <%= ENV['RAILS_PG_USER'] %>
+  password: <%= ENV['RAILS_PG_PASSWORD'] %>
+  ssl: true
