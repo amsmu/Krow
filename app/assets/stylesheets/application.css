@@ -48,7 +48,7 @@ div.flash.notice {
 	display: block;
 }
 p,a{
-	color: #345;
+	color: #fff;
 }
 .options{
 	display: inline;
@@ -92,3 +92,4 @@ footer{
 	margin-bottom: 10px;
 
 }
+
