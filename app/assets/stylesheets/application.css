@@ -47,7 +47,10 @@ div.flash.notice {
 .top-bar{
 	display: block;
 }
-p,a{
+p{
+	color: #345;
+}
+a{
 	color: #fff;
 }
 .options{
