@@ -3,8 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #grad-home {
  
- background: image-url("Vaio-Keyboard-Macro-Wallpaper-Full-HD-022.jpg") no-repeat -20px -40px;
+ background: image-url("Krow_cover.jpg") no-repeat -20px -40px;
  background-color: rgba(0,0,0,0.6);
+ background-size:     cover;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: center center; 
   height: 100%;
   border-top: 2px solid #fff;
   text-align: center;

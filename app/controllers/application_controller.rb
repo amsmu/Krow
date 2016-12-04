@@ -21,4 +21,9 @@ class ApplicationController < ActionController::Base
   		redirect_to new_user_session_path
     end
   end
+  def home_user
+    if current_user
+      redirect_to todo_lists_path
+    end
+  end
 end

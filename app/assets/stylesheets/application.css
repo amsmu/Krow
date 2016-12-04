@@ -90,9 +90,13 @@ footer{
 	background-color: #fff;
 	border-top: 2px solid white;
 	text-align: center;
+	z-index: 1000;
 	height: 30px;
 	padding: 10px 10px 10px;
 	margin-bottom: 10px;
 
 }
 
+h1{
+	font-family: font-family: 'Pacifico', cursive;
+}
