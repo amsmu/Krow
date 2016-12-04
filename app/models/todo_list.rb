@@ -1,6 +1,16 @@
-class TodoList < ActiveRecord::Base
+class TodoList
+	include Mongoid::Document
+  		field :title, type: String
+  		field :description, type: String
+  		field :user_id, type: Integer
+  	def user
+    	return nil if self.user_id.nil?
+    	User.find(self.user_id)
+  	end
+  	def user=(user)
+    	self.user_id = user.id
+  	end
 	has_many :todo_items
-	belongs_to :user
 	validates :title, presence: true,
 	length: {minimum: 3}
 	validates :description, presence: true,

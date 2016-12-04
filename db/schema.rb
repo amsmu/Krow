@@ -14,37 +14,36 @@
 ActiveRecord::Schema.define(version: 20151201174519) do
 
   create_table "todo_items", force: :cascade do |t|
-    t.integer  "todo_list_id", limit: 4
-    t.string   "content",      limit: 255
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.integer  "todo_list_id"
+    t.string   "content"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.datetime "completed_at"
   end
 
-  add_index "todo_items", ["todo_list_id"], name: "index_todo_items_on_todo_list_id", using: :btree
+  add_index "todo_items", ["todo_list_id"], name: "index_todo_items_on_todo_list_id"
 
   create_table "todo_lists", force: :cascade do |t|
-    t.string   "title",       limit: 255
-    t.text     "description", limit: 65535
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.integer  "user_id",     limit: 4
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "user_id"
   end
 
-  add_index "todo_lists", ["user_id"], name: "index_todo_lists_on_user_id", using: :btree
+  add_index "todo_lists", ["user_id"], name: "index_todo_lists_on_user_id"
 
   create_table "users", force: :cascade do |t|
-    t.string   "first_name",           limit: 255
-    t.string   "last_name",            limit: 255
-    t.string   "email",                limit: 255
-    t.string   "password_digest",      limit: 255
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
-    t.string   "password_reset_token", limit: 255
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.string   "password_reset_token"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", using: :btree
-  add_index "users", ["password_reset_token"], name: "index_users_on_password_reset_token", using: :btree
+  add_index "users", ["email"], name: "index_users_on_email"
+  add_index "users", ["password_reset_token"], name: "index_users_on_password_reset_token"
 
-  add_foreign_key "todo_items", "todo_lists"
 end
