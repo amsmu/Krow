@@ -1,3 +1,5 @@
 == README
 
 Readme is coming pretty soon.
+
+For now you can check app/models/todo_list.rb and app/models/user.rb for association code between MongoDB( Mongoid) and Sqlite3( ActiveRecord ).
