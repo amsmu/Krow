@@ -13,8 +13,9 @@ class User < ActiveRecord::Base
 	def generate_password_reset_token!
 		update_attribute(:password_reset_token, SecureRandom.urlsafe_base64(54))
 	end
+	# Association
 	def todo_lists
-    
+		# Find and return the Posts in Mongoid that match this User's id
     	TodoList.where(user_id: self.id)
   	end
 end
